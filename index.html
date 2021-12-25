@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>What do you want?</title>
+	<meta name="author" content="Xuxu">
+	<meta name="description" content="Silly stuff made for fun">
+	<style>
+		body
+		{
+			background-color:#585858;
+		}
+		.btn 
+		{
+			display: inline-bloc;
+			border: none;
+			padding: 6px 12px;
+			margin-bottom: 0;
+			font-size: 16px;
+			font-weight: normal;
+			text-align: center;
+			cursor: pointer;
+			border-radius: 4px;
+			margin: auto;
+			width: 60%;
+		}
+		
+		.switch
+		{
+			position: relative;
+			display: inline-block;
+			width: 100px;
+			height: 48px;
+			text-align:right;
+		}
+		
+		
+		.slider 
+		{
+			position: absolute;
+			cursor: pointer;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			background-color:#ccc;
+			-webkit-transition:.4s;
+			transition: .4s;
+			border-radius:34px;
+		}
+		.slider:before /* the ball */
+		{
+			position: absolute;
+			content: "";
+			height: 40px;
+			width: 40px;
+			left:4px;
+			bottom:4px;
+			background-color:white;
+			-webkit-transition:.4s;
+			transition:.4s;
+			border-radius:50%;
+		}
+		input:checked + .slider
+		{
+			background-color: #3F8743;
+		}
+		input:focus + .slider 
+		{
+			box-shadow: 0 0 1px #3F8743;
+		}
+		input:checked + .slider:before 
+		{
+			-webkit-transform: translateX(52px);
+			-ms-transform: translateX(52px);
+			transform: translateX(52px);
+		}
+		.switch input
+		{
+			opacity: 0;
+			width:0;
+			height:0;
+		}
+		div 
+		{
+			border: none;
+			margin-left: 1rem;
+			padding: 2rem 2rem;
+			text-align: center;
+		}
+		.child 
+		{
+			display: inline-block;
+			border: none;
+			padding: 5rem 5rem;
+			
+		}
+		.child1 
+		{
+			display: inline-block;
+			border:1px solid black;
+			padding: 5rem 5rem;
+			vertical-align: middle;
+		}
+		.child2
+		{
+			display: flex;
+			vertical-align: middle;
+		}
+		span.text
+		{
+			display:inline;
+			font-family: cursive;
+			margin-left:1em;
+			font-size:20px;
+		}
+		span.hidden
+		{
+			margin-top: 2em;
+			display:none;
+			font-size:20px;
+			font-family: cursive;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<div>
+	<div class="child1">
+	
+	<div class="child2">
+	<label class="switch"> 
+		<input id="f" type="checkbox" onclick="checkStatus(this)">
+		<span class="slider"></span>
+	</label>
+	<span class="text">Friendship</span></div>
+	
+	<div class="child2">
+	<label class="switch">
+		<input id="l" type="checkbox" onclick="checkStatus(this)">
+		<span class="slider"></span>
+	</label>
+	<span class="text">Love</span></div>
+	
+	<div class="child2">
+	<label class="switch">
+		<input id="w" type="checkbox" onclick="checkStatus(this)">
+		<span class="slider"></span>
+	</label>
+	<span class="text">Wealth</span></div>
+	</div>
+	
+	<div class="child">
+	<span class="text">Choose what you want? I guess</span>
+	</div>
+		
+	</div>
+	
+	<span class="hidden" id="hidden">"If you ask for too much, you lose even that which you have" - Isaac Asimov </span>
+	
+	<script type="text/javascript">
+		var count = 0;
+		function checkStatus(which)
+		{
+			var f = document.getElementById("f");
+			var l = document.getElementById("l");
+			var w = document.getElementById("w");
+			var a = f.checked && l.checked && w.checked;
+			if (a)
+			{
+				switch(which)
+				{
+				case f:
+					document.getElementById("l").checked = false;
+					break;
+				case l:
+					document.getElementById("w").checked = false;
+					break;
+				case w:
+					document.getElementById("f").checked = false;
+					break;
+				}
+				document.getElementById("hidden").style.display = "block";
+			}
+
+		}
+	</script>
+</body>
+</html>
